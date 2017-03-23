@@ -76,9 +76,7 @@ void __attribute__((naked)) reset()
     }
 
     /* Call CTORS of static objects */
-#ifdef __cplusplus
     __libc_init_array();
-#endif
 
     // call the main function
     main();
@@ -349,4 +347,7 @@ int _write(int file, char *ptr, int len)
     }
 
     return len;
+}
+
+void _init() {
 }
