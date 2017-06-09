@@ -51,11 +51,11 @@ void platform_drivers_setup()
     // Enable the AFIO
     rcc_apb_enable(RCC_APB_BUS_AFIO, RCC_APB_BIT_AFIO);
 
-    // Start the TIM3 at ~32kHz
-    timer_enable(TIM_3);
-    timer_select_internal_clock(TIM_3, (rcc_sysclk_get_clock_frequency(
+    // Start the TIM4 at ~32kHz
+    timer_enable(TIM_4);
+    timer_select_internal_clock(TIM_4, (rcc_sysclk_get_clock_frequency(
                                            RCC_SYSCLK_CLOCK_PCLK1_TIM) / 32768) - 1);
-    timer_start(TIM_3, 0xFFFF, NULL, NULL);
+    timer_start(TIM_4, 0xFFFF, NULL, NULL);
 
     // Enable the print uart
     uart_enable(UART_1, PLATFORM_UART_PRINT_BAUDRATE);
@@ -112,10 +112,12 @@ void tim2_isr()
     timer_handle_interrupt(TIM_2);
 }
 
+/*
 void tim3_isr()
 {
     timer_handle_interrupt(TIM_3);
 }
+*/
 
 void tim4_isr()
 {

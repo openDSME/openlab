@@ -48,6 +48,6 @@ const mac_tdma_config_t mac_tdma_config =
 void platform_net_setup()
 {
     // Setup the PHY libraries
-    phy_rf2xx_init(&phy_rf231, rf231, TIM_3, TIMER_CHANNEL_4);
+    phy_rf2xx_init(&phy_rf231, rf231, TIM_4, TIMER_CHANNEL_4);
 }
 
